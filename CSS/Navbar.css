@@ -34,17 +34,18 @@
 .logo {
     font-size: 30px;
     font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-left: 4%;
     font-weight: 1000;
 }
 
 .nav-links {
-    font-size: 60px;
+    font-size: 70px;
     list-style: none;
     display: flex;
     gap: 25px;
     padding-right: 5%;
-    margin-bottom: 6.5%;
+    margin-bottom: 8%;
 }
 
 .nav-links li {

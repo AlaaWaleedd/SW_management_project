@@ -1,13 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("signup-link").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".login-box").classList.add("hidden");
-        document.querySelector(".signup-box").classList.remove("hidden");
+    const container = document.getElementById("container");
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+    const signUpForm = document.querySelector(".sign-up-container");
+    const signInForm = document.querySelector(".sign-in-container");
+    const overlay = document.querySelector(".overlay-container");
+
+    signUpButton.addEventListener("click", function () {
+        signUpForm.style.transform = "translateX(0)";
+        signInForm.style.transform = "translateX(100%)";
+        overlay.style.transform = "translateX(-100%)";
     });
 
-    document.getElementById("login-link").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".signup-box").classList.add("hidden");
-        document.querySelector(".login-box").classList.remove("hidden");
+    signInButton.addEventListener("click", function () {
+        signUpForm.style.transform = "translateX(-100%)";
+        signInForm.style.transform = "translateX(0)";
+        overlay.style.transform = "translateX(0)";
     });
 });
+
+

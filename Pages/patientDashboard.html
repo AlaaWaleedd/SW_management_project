@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="/CSS/patientDashboard.css">
+</head>
+<body>
+    <header class="Headers">
+        <h1>Patient Dashboard</h1>
+    </header>
+    <main class="dashboard-container">
+        <section class="patient-info">
+            <h2>Personal Information</h2>
+            <div class="info-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="John Doe" readonly>
+                <button class="edit-btn"></button>
+            </div>
+            <div class="info-field">
+                <label for="age">Age:</label>
+                <input type="text" id="age" value="30" readonly>
+                <button class="edit-btn"></button>
+            </div>
+            <div class="info-field">
+                <label for="blood-type">Blood Type:</label>
+                <input type="text" id="blood-type" value="O+" readonly>
+                <button class="edit-btn"></button>
+            </div>
+            <div class="info-field">
+                <label for="allergies">Allergies:</label>
+                <input type="text" id="allergies" value="None" readonly>
+                <button class="edit-btn"></button>
+            </div>
+        </section>
+        <section class="medical-records">
+            <h2>Medical Records</h2>
+            <div class="record">
+                <h3>Last Visit</h3>
+                <p><strong>Date:</strong> June 10, 2024</p>
+                <p><strong>Doctor:</strong> Dr. Smith</p>
+                <p><strong>Diagnosis:</strong> Mild Hypertension</p>
+            </div>
+        </section>
+    </main>
+    <script>
+    document.querySelectorAll(".edit-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            let inputField = this.previousElementSibling;
+            inputField.removeAttribute("readonly");
+            inputField.focus();
+            this.style.display = "none";
+            inputField.addEventListener("blur", function() {
+                inputField.setAttribute("readonly", true);
+                button.style.display = "inline-block";
+            });
+        });
+    });
+</script>
+</body>
+</html>

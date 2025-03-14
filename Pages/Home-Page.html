@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
     <title>VeroCare</title>
     <link rel="stylesheet" href="/CSS/Navbar.css">
     <link rel="stylesheet" href="/CSS/Home-Page.css">
@@ -23,55 +27,73 @@
         <div class="logo">VeroCare </div>
         <ul class="nav-links">
             <li><a href="/Pages/Home-Page.html">Home</a></li>
-            <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li>
+            <!-- <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li> -->
             <li><a href="#">Signup / Login</a></li>
         </ul>
     </nav>
 
     <div class="First-section">
-        <div class="text-content">
-            <h1>Welcome to VeroCare </h1>
-            <p>Your health is our priority. Book an appointment today and get expert medical care from trusted
-                professionals.</p>
+        <div class="section1-content">
+            <div class="text-content">
+                <h1>Welcome to VeroCare </h1>
+                <p>Your health is our priority. Book an appointment today and get expert medical care from trusted
+                    professionals.</p>
 
                 <button>Book Appointment</button>
-        </div>
+            </div>
 
-        <img class='Stethoscope' src="/Images/stethoscope.webp">
+            <img class='Stethoscope' src="/Images/stethoscope.webp">
+        </div>
     </div>
 
     <div class="Second-section">
         <h2 class="Headers">Latest News & Health Tips</h2>
-        <div class="carousel">
+        <!-- <div class="carousel">
             <div class="carousel-container" id="carouselContainer">
-                <div class="slide"> 
-                   <span>
-                    <h2>Heart Disease Prevention</h2>
-                    <p>A recent study highlights that following a Mediterranean diet—rich in fruits, 
-                         vegetables,whole grains, and healthy fats—can significantly lower the risk of heart disease.
-                          Experts recommend reducing processed foods, staying active,<br> and managing stress to keep your heart healthy. </p>
-                          <img src="/Images/heart-disease.avif">
-                   </span>
-                         </div>
+                <div class="slide">
+                    <span>
+                        <h2>Heart Disease Prevention</h2>
+                        <p>A recent study highlights that following a Mediterranean diet—rich in fruits,
+                            vegetables,whole grains, and healthy fats—can significantly lower the risk of heart disease.
+                            Experts recommend reducing processed foods, staying active,<br> and managing stress to keep
+                            your heart healthy. </p>
+                        <img src="/Images/heart-disease.avif">
+                    </span>
+                </div>
 
-                         
-                <div class="slide"> <h2>Health Tip #2</h2>
-                    <p>Exercise for at least 30 minutes a day.</p> </div>
 
-                <div class="slide"> <h2>Health Tip #3</h2>
-                    <p>Eat a balanced diet with fruits and vegetables.</p> </div>
+                <div class="slide">
+                    <h2>Health Tip #2</h2>
+                    <p>Exercise for at least 30 minutes a day.</p>
+                </div>
+
+                <div class="slide">
+                    <h2>Health Tip #3</h2>
+                    <p>Eat a balanced diet with fruits and vegetables.</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="carousel-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">1</div>
+                    <div class="swiper-slide">2</div>
+                    <div class="swiper-slide">3</div>
+                    <div class="swiper-slide">4</div>
+                    <div class="swiper-slide">5</div>
+                </div>
             </div>
         </div>
-        <div class="dots" id="dots"></div>
+        
     </div>
-    
+
 
     <div class="Third-section">
-        
+
         <h2 class="Headers">Why Choose Us?</h2>
         <div class="why-choose-us">
             <div class="choose-container">
-                
+
                 <div class="stats">
                     <div class="stat">
                         <h3>7+</h3>
@@ -86,35 +108,31 @@
                         <p>Patient Satisfaction</p>
                     </div>
                 </div>
-        
+
                 <div class="services">
                     <div class="service">
                         <i class="fas fa-user-md"></i>
                         <h3>Expert Doctors</h3>
-                        <p>Our team of experienced doctors provide expert care and treatment for a wide range of medical conditions.</p>
+                        <p>Our team of experienced doctors provide expert care and treatment for a wide range of medical
+                            conditions.</p>
                     </div>
                     <div class="service">
                         <i class="fas fa-hospital"></i>
                         <h3>State-of-the-Art Facilities</h3>
-                        <p>Our modern facilities are equipped with the latest technology to ensure the highest standard of care.</p>
+                        <p>Our modern facilities are equipped with the latest technology to ensure the highest standard
+                            of care.</p>
                     </div>
                     <div class="service">
                         <i class="fas fa-heartbeat"></i>
                         <h3>Comprehensive Care</h3>
-                        <p>We offer a wide range of medical services to meet all your healthcare needs in one convenient location.</p>
+                        <p>We offer a wide range of medical services to meet all your healthcare needs in one convenient
+                            location.</p>
                     </div>
-                <!-- <div class="testimonial">
-                    <img src="/Images/patient-testimonial.jpg" alt="Happy Patient">
-                    <div class="testimonial-text">
-                        <p>“The doctors and staff provided exceptional care. I felt safe and well-informed throughout my treatment.”</p>
-                        <h4>- Sarah Johnson</h4>
-                    </div>
-                </div> -->
-        
+
+                </div>
             </div>
+
         </div>
-        
-        
     </div>
 </body>
 

@@ -56,3 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
         effect: "slide",
     });
 });
+
+var swiper = new Swiper(".swiper", {
+    slidesPerView: 3, // or 'auto' if you want it dynamic
+    spaceBetween: 10,
+    loop: false, // Prevents Swiper from creating extra blank slides
+    centeredSlides: false, // Prevents centering from adding gaps
+    freeMode: true
+});

@@ -54,14 +54,15 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent);
+  color:#F5EFEB;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+  font-size: 2rem;
+
 }
 
 .nav-links {
@@ -95,12 +96,12 @@ nav {
 .btn {
   position: relative;
   padding: 0.5rem 1.5rem;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
   width: 160px;
-  background: linear-gradient(135deg, #CBD9E6 0%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #F5EFEB );
   color: #2F4156;
   box-shadow: 0 4px 10px rgba(203, 217, 230, 0.4);
   overflow: hidden;

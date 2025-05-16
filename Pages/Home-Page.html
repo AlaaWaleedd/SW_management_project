@@ -25,14 +25,45 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <div class="logo">VeroCare </div>
         <ul class="nav-links">
             <li><a href="/Pages/Home-Page.html">Home</a></li>
-            <!-- <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li> -->
+         <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li> 
             <li><a href="/Pages/login.html">Login</a></li>
         </ul>
-    </nav>
+    </nav> -->
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">⚕️</span>
+                VeroCare
+            </div>
+            <ul class="nav-links">
+                <li><a href="/Pages/Home-Page.html">Home</a></li>
+                <li><a href="/Pages/Booking-Appointment-Page.html">Appointments</a></li>
+                <li><a href="/Pages/About-Us.html">About Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-outline">Sign In</button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- JavaScript to light up current page -->
+<script>
+    const currentPath = window.location.pathname.replace(/\/+$/, '').toLowerCase();
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        const linkPath = new URL(link.href).pathname.replace(/\/+$/, '').toLowerCase();
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+        }
+    });
+</script>
+
 
     <div class="First-section">
         <div class="section1-content">
@@ -74,7 +105,7 @@
                     <div class="swiper-slide">
                         <div>
                             <h2>🧑‍⚕️Schedule Regular Checkups </h2>
-                            <p>Scheduling regular checkups is key to maintaining good health. Routine visits allow doctors to detect potential issues early, monitor existing conditions, and provide necessary screenings. </p>
+                            <p>Scheduling regular checkups is key to maintaining good health. Routine visits allow doctors to detect potential issues early . </p>
                         </div>
                         </div>
 
@@ -88,7 +119,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <h2>🚶‍♂️Walking Enhances Weight Loss</h2>
-                                    <p>A recent study highlights that regular walking not only burns calories but also preserves lean muscle, reduces belly fat, and improves mood, making it an effective and accessible exercise for weight management. 
+                                    <p>A recent study highlights that regular walking not only burns calories but also preserves lean muscle, reduces belly fat, and improves mood. 
                                     </p>
                                 </div>
                                 </div>      

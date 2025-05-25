@@ -1,0 +1,48 @@
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - VeroCare</title>
+  <link rel="stylesheet" href="/CSS/admin-dashboard.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><span class="icon">⚕</span> VeroCare Admin</div>
+    <nav class="nav">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#users">Users</a>
+      <a href="#appointments">Appointments</a>
+      <a href="#settings">Settings</a>
+    </nav>
+    <button class="btn">Logout</button>
+  </header>
+
+  <main class="dashboard">
+    <section class="cards">
+      <div class="card">
+        <h3>Total Users</h3>
+        <p id="userCount">0</p>
+      </div>
+      <div class="card">
+        <h3>Appointments</h3>
+        <p id="appointmentCount">0</p>
+      </div>
+      <div class="card">
+        <h3>Doctors Online</h3>
+        <p id="onlineDoctors">0</p>
+      </div>
+    </section>
+
+    <section class="activity">
+      <h2>Recent Activity</h2>
+      <ul id="activityLog">
+        <!-- Populated by JavaScript -->
+      </ul>
+    </section>
+  </main>
+
+  <script src="/JS/admin-dashboard.js"></script>
+</body>
+</html>

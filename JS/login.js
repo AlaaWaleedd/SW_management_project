@@ -1,22 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("container");
-    const signUpButton = document.getElementById("signUp");
-    const signInButton = document.getElementById("signIn");
-    const signUpForm = document.querySelector(".sign-up-container");
-    const signInForm = document.querySelector(".sign-in-container");
-    const overlay = document.querySelector(".overlay-container");
+// script.js
+const form = document.getElementById('authForm');
+const emailInput = document.getElementById('email');
+const errorMsg = document.getElementById('errorMsg');
+const toggleFormBtn = document.getElementById('toggleForm');
+const formTitle = document.getElementById('formTitle');
 
-    signUpButton.addEventListener("click", function () {
-        signUpForm.style.transform = "translateX(0)";
-        signInForm.style.transform = "translateX(100%)";
-        overlay.style.transform = "translateX(-100%)";
-    });
+let isLogin = true;
 
-    signInButton.addEventListener("click", function () {
-        signUpForm.style.transform = "translateX(-100%)";
-        signInForm.style.transform = "translateX(0)";
-        overlay.style.transform = "translateX(0)";
-    });
+toggleFormBtn.addEventListener('click', () => {
+  isLogin = !isLogin;
+  formTitle.textContent = isLogin ? 'Sign In' : 'Sign Up';
+  toggleFormBtn.textContent = isLogin ? 'Sign In' : 'Sign Up';
 });
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = emailInput.value.trim();
+  if (!email.includes('@')) {
+    errorMsg.textContent = 'Invalid email: must include @ symbol';
+    return;
+  }
+  errorMsg.textContent = '';
+  alert(`${isLogin ? 'Signed in' : 'Signed up'} with ${email}`);
+  form.reset();
+});
+
 
 

@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Appointments List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -16,23 +18,158 @@
     <title>VeroCare</title>
     <link rel="stylesheet" href="/CSS/Navbar.css">
     <link rel="stylesheet" href="/CSS/Home-Page.css">
-    <link rel="stylesheet" href="/CSS/Doctor-Dashboard.css">
+   
     <script src="/JS/Home-Page.js"></script>
     <script src="/JS/Navbar.js"></script>
-    <style>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
 
-    </style>
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background-color: #007bff;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .action-buttons button {
+      border: none;
+      padding: 6px 10px;
+      margin-right: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-accept {
+      background-color: #28a745;
+    }
+
+    .btn-reject {
+      background-color: #dc3545;
+    }
+
+    .btn-edit {
+      background-color: #17a2b8;
+    }
+
+    .btn-accept.accepted {
+      background-color: #218838;
+    }
+
+    .btn-reject.rejected {
+      background-color: #c82333;
+    }
+  </style>
 </head>
-
 <body>
 
+<div class="container">
+  <h2>Appointments List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Patient Name</th>
+        <th>Age</th>
+        <th>Consulting Doctor</th>
+        <th>Department</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Disease</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="appointments">
+      <tr>
+        <td>001</td>
+        <td>Deena Cooley</td>
+        <td>65</td>
+        <td>Vicki Walsh</td>
+        <td>Surgeon</td>
+        <td>2024-05-23</td>
+        <td>9:30 AM</td>
+        <td>Diabetes</td>
+        <td class="action-buttons">
+          <button class="btn-accept"><i class="fas fa-check"></i></button>
+          <button class="btn-reject"><i class="fas fa-times"></i></button>
+          <button class="btn-edit"><i class="fas fa-pen"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Jerry Wilcox</td>
+        <td>73</td>
+        <td>April Gallegos</td>
+        <td>Gynecologist</td>
+        <td>2024-05-23</td>
+        <td>9:45 AM</td>
+        <td>Fever</td>
+        <td class="action-buttons">
+          <button class="btn-accept"><i class="fas fa-check"></i></button>
+          <button class="btn-reject"><i class="fas fa-times"></i></button>
+          <button class="btn-edit"><i class="fas fa-pen"></i></button>
+        </td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>
 
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">VeroCare </div>
-    <ul class="nav-links">
-        <li><a href="/Pages/Home-Page.html">Home</a></li>
-        <!-- <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li> -->
-        <li><a href="#">Login</a></li>
-    </ul>
-</nav>
+<script>
+  // Handle Accept and Reject actions
+  document.querySelectorAll('.btn-accept').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('accepted');
+      const row = btn.closest('tr');
+      row.style.backgroundColor = '#d4edda'; // Light green
+    });
+  });
+
+  document.querySelectorAll('.btn-reject').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('rejected');
+      const row = btn.closest('tr');
+      row.style.backgroundColor = '#f8d7da'; // Light red
+    });
+  });
+
+  document.querySelectorAll('.btn-edit').forEach(btn => {
+    btn.addEventListener('click', () => {
+      alert('Edit functionality can be added here!');
+    });
+  });
+</script>
+
+</body>
+</html>

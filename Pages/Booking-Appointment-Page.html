@@ -32,7 +32,8 @@
                     <li><a href="#">About Us</a></li>
                 </ul>
                 <div class="auth-buttons">
-                    <button class="btn btn-outline">Sign In</button>
+                    <button class="btn btn-outline" onclick="window.location.href='/Pages/login.html'">Sign In</button>
+
                 </div>
             </nav>
         </div>
@@ -81,7 +82,9 @@
             </div>
 
             <!-- Step 1: Department Selection -->
-            <div class="booking-form active" id="step1"></div>
+            <div class="booking-form active" id="step1">
+                
+            </div>
 
 
             <!-- Step 2: Date & Time Selection -->
@@ -93,64 +96,73 @@
 <div class="booking-form" id="step3"></div>
 
             <!-- Step 4: Patient Details -->
-            <div class="booking-form" id="step4">
-                <div class="form-section">
-                    <h3>Personal Information</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="first-name">First Name</label>
-                            <input type="text" class="form-control" id="first-name" placeholder="Enter your first name">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="last-name">Last Name</label>
-                            <input type="text" class="form-control" id="last-name" placeholder="Enter your last name">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="dob">Age</label>
-                            <input type="integer" class="form-control" id="dob" placeholder="Enter your age">
-                        </div>
-                        
-                    </div>
-                </div>
+<div class="booking-form" id="step4">
+  <div class="form-section">
+    <h3>Personal Information</h3>
+    <div class="form-grid">
 
-                <div class="form-section">
-                    <h3>Insurance Information (Optional)</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="insurance-provider">Insurance Provider</label>
-                            <input type="text" class="form-control" id="insurance-provider"
-                                placeholder="Enter your insurance provider">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="policy-number">Policy Number</label>
-                            <input type="text" class="form-control" id="policy-number"
-                                placeholder="Enter your policy number">
-                        </div>
-                    </div>
-                </div>
+      <div class="form-group">
+        <label class="form-label" for="first-name">First Name</label>
+        <input type="text" class="form-control" id="first-name" name="firstName" placeholder="Enter your first name" required>
+        <div class="error-message" id="error-first-name"></div>
+      </div>
 
-                <div class="form-section">
-                    <h3>Additional Notes</h3>
-                    <div class="form-group">
-                        <label class="form-label" for="notes">Any additional information you'd like us to know?</label>
-                        <textarea class="form-control" id="notes" rows="3"
-                            placeholder="Enter additional notes here..."></textarea>
-                    </div>
-                </div>
+      <div class="form-group">
+        <label class="form-label" for="last-name">Last Name</label>
+        <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Enter your last name" required>
+        <div class="error-message" id="error-last-name"></div>
+      </div>
 
-                <div class="form-buttons">
-                    <button class="btn btn-outline btn-lg" onclick="showStep(3)">Back</button>
-                    <button class="btn btn-primary btn-lg" onclick="showStep(5)">Continue</button>
-                </div>
-            </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        <div class="error-message" id="error-email"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+        <div class="error-message" id="error-phone"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="dob">Age</label>
+        <input type="number" min="1" class="form-control" id="dob" name="age" placeholder="Enter your age" required>
+        <div class="error-message" id="error-dob"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Insurance Information (Optional)</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label" for="insurance-provider">Insurance Provider</label>
+        <input type="text" class="form-control" id="insurance-provider" name="insuranceProvider" placeholder="Enter your insurance provider">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="policy-number">Policy Number</label>
+        <input type="text" class="form-control" id="policy-number" name="policyNumber" placeholder="Enter your policy number">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Additional Notes</h3>
+    <div class="form-group">
+      <label class="form-label" for="notes">Any additional information you'd like us to know?</label>
+      <textarea class="form-control" id="notes" name="additionalNotes" rows="3" placeholder="Enter additional notes here..."></textarea>
+    </div>
+  </div>
+
+  <div class="form-buttons">
+    <button class="btn btn-outline btn-lg" onclick="showStep(3)">Back</button>
+    <button class="btn btn-primary btn-lg" onclick="if(validateStep4()) showStep(5)">Continue</button>
+  </div>
+</div>
+
+
 
             <!-- Step 5: Confirmation -->
 <div class="booking-form" id="step5">
@@ -165,6 +177,7 @@
   <div class="modal-content">
     <span class="close-btn" id="closeModal">&times;</span>
     <p id="confirmationMessage"></p>
+    <button id="okButton">OK</button>  <!-- Added OK button here -->
   </div>
 </div>
 

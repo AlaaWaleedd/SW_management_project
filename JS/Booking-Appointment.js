@@ -43,7 +43,7 @@ const doctors = [
   // Neurology
   { name: "Dr. Hassan Ali", specialty: "Neurology", rating: 4.6, years: 5, patients: 850, availability: "Available Today" },
   { name: "Dr. Samar Fahad", specialty: "Neurology", rating: 4.8, years: 12, patients: 1200, availability: "Available Tomorrow" },
-  { name: "Dr. Khaled Mahmoud", specialty: "Neurology", rating: 4.7, years: 9, patients: 950, availability: "Available Today" },
+  { name: "Dr. Omneya Osama", specialty: "Neurology", rating: 4.7, years: 9, patients: 950, availability: "Available Today" },
   { name: "Dr. Laila Hani", specialty: "Neurology", rating: 4.9, years: 15, patients: 1300, availability: "Available Today" },
   { name: "Dr. Jamal Adel", specialty: "Neurology", rating: 4.5, years: 7, patients: 800, availability: "Available Tomorrow" },
   { name: "Dr. Nour Salim", specialty: "Neurology", rating: 4.6, years: 8, patients: 850, availability: "Available Today" },
@@ -415,27 +415,33 @@ function showStep(step) {
 
 // Confirmation booking alert and reset
   function confirmBooking() {
-      const message = `Thank you, your appointment has been booked.`;
+      const message = `Thank you, your appointment has been booked Successfully.`;
       document.getElementById('confirmationMessage').textContent = message;
       document.getElementById('confirmationModal').style.display = 'block';
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const closeModalBtn = document.getElementById('closeModal');
-      const modal = document.getElementById('confirmationModal');
+   document.addEventListener("DOMContentLoaded", function () {
+  const closeModalBtn = document.getElementById('closeModal');
+  const okButton = document.getElementById('okButton');
+  const modal = document.getElementById('confirmationModal');
 
-      closeModalBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-        showStep(1);
-      });
+  closeModalBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+    showStep(1);
+  });
 
-      window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-          showStep(1);
-        }
-      });
-    });
+  okButton.addEventListener('click', function () {
+    modal.style.display = 'none';
+    window.location.href = '/Pages/Home-Page.html';  // Redirect to homepage (adjust URL if needed)
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      showStep(1);
+    }
+  });
+});
 
 
 
@@ -461,3 +467,67 @@ window.onclick = function(event) {
 };
 
 
+function validateStep4() {
+  let isValid = true;
+
+  // Clear all previous error messages
+  const errorIds = ['error-first-name', 'error-last-name', 'error-email', 'error-phone', 'error-dob'];
+  errorIds.forEach(id => {
+    document.getElementById(id).textContent = '';
+  });
+
+  // Regex for name validation (letters only)
+  const nameRegex = /^[a-zA-Z]+$/;
+
+  // Validate First Name
+  const firstName = document.getElementById('first-name').value.trim();
+  if (firstName === '') {
+    document.getElementById('error-first-name').textContent = 'First name is required.';
+    isValid = false;
+  } else if (!nameRegex.test(firstName)) {
+    document.getElementById('error-first-name').textContent = 'First name can only contain letters.';
+    isValid = false;
+  }
+
+  // Validate Last Name
+  const lastName = document.getElementById('last-name').value.trim();
+  if (lastName === '') {
+    document.getElementById('error-last-name').textContent = 'Last name is required.';
+    isValid = false;
+  } else if (!nameRegex.test(lastName)) {
+    document.getElementById('error-last-name').textContent = 'Last name can only contain letters.';
+    isValid = false;
+  }
+
+  // Validate Email
+  const email = document.getElementById('email').value.trim();
+  if (email === '') {
+    document.getElementById('error-email').textContent = 'Email address is required.';
+    isValid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('error-email').textContent = 'Please enter a valid email.';
+    isValid = false;
+  }
+
+  // Validate Phone Number
+  const phone = document.getElementById('phone').value.trim();
+  if (phone === '') {
+    document.getElementById('error-phone').textContent = 'Phone number is required.';
+    isValid = false;
+  } else if (!/^\+?[\d\s\-()]{7,}$/.test(phone)) {
+    document.getElementById('error-phone').textContent = 'Please enter a valid phone number.';
+    isValid = false;
+  }
+
+  // Validate Age
+  const age = document.getElementById('dob').value.trim();
+  if (age === '') {
+    document.getElementById('error-dob').textContent = 'Age is required.';
+    isValid = false;
+  } else if (isNaN(age) || age < 1 || age > 120) {
+    document.getElementById('error-dob').textContent = 'Please enter a valid age.';
+    isValid = false;
+  }
+
+  return isValid;
+}

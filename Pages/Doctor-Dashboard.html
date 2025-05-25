@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+
+    <title>VeroCare</title>
+    <link rel="stylesheet" href="../CSS/Navbar.css">
+    <link rel="stylesheet" href="../CSS/Home-Page.css">
+    <link rel="stylesheet" href="../CSS/Doctor-Dashboard.css">
+    <script src="../JS/Home-Page.js"></script>
+    <script src="../JS/Navbar.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">VeroCare </div>
+    <ul class="nav-links">
+        <li><a href="../Pages/Home-Page.html">Home</a></li>
+        <!-- <li><a href="/Pages/Booking-Appointment-Page.html">Book Appointment</a></li> -->
+        <li><a href="#">Login</a></li>
+    </ul>
+</nav>
+
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        
+        <nav>
+            <ul>
+                <li><a href='#'><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href='Doctor-Appointments.html'><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                <li><a href='#'><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href='#'><i class="fas fa-cogs"></i> Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+
+
+    <div class="dashboard-wrapper">
+              <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <h2>Welcome, Dr. Alex White</h2>
+            <p>Have a great day at work.</p>
+
+
+            <div class="welcome-cards">
+                <div class="stat-card blue">
+                    <i class="fas fa-users"></i> <!-- Font Awesome icon -->
+                    <div>
+                        <h2>278</h2> <!-- Total patients helped -->
+                        <p>Patients Helped</p>
+                    </div>
+                </div>
+          
+                <div class="stat-card green">
+                    <i class="fas fa-calendar-check"></i> <!-- Font Awesome icon -->
+                    <div>
+                      <h2>5</h2> <!-- Appointments today -->
+                      <p>Appointments Today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Main Content Row: Reviews | Patients Type | Profile -->
+        <div class="main-content-row">
+            <div class="left-column">
+                <!-- Upcoming Appointments -->
+<div class="appointments-card">
+    <h3>Upcoming Appointments</h3>
+    <div class="appointment">
+        <p><strong>Patient:</strong> John Doe</p>
+        <p><strong>Date:</strong> May 14, 2025</p>
+        <p><strong>Time:</strong> 10:00 AM</p>
+    </div>
+    <div class="appointment">
+        <p><strong>Patient:</strong> Sarah Lee</p>
+        <p><strong>Date:</strong> May 14, 2025</p>
+        <p><strong>Time:</strong> 11:30 AM</p>
+    </div>
+</div>
+
+                <!-- Patient Reviews -->
+                <div class="reviews-card">
+                    <h3>Patient Reviews</h3>
+                    <div class="review">
+                        <img src="../Images/patient1.jpg" alt="Wendi Combs">
+                        <div>
+                            <strong>Wendi Combs</strong>
+                            <p>I had a very good experience here. They analysed my case very deeply and their medicines helped me a lot.</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="../Images/patient2.jpg" alt="Nick Morrow">
+                        <div>
+                            <strong>Nick Morrow</strong>
+                            <p>Dr White listens to you and shes very helpful. She diagnosed in no time & I was able to recover quickly, not just diagnosing correctly, she helped me in changing my lifestyle habits.</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="../Images/patient3.jpg" alt="Carole Dodson">
+                        <div>
+                            <strong>Carole Dodson</strong>
+                            <p>She is very supportive and gives great medical advice. </p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                
+                 </div>
+                </div>
+            
+
+
+
+        <!-- Profile Info Section -->
+            <div class="profile-container">
+               <img src="../Images/doctor2.jpg" alt="Doctor Image">
+            
+               <div class="doctor-info">
+                    <h3>Dr. Smith White</h3>
+                    <hr>
+
+
+                    <div class="info-box"><strong>Specialization:</strong> Cardiology</div>
+                    <div class="info-box"><strong>Work Fields:</strong> General Consultation, Heart Health</div>
+                    <div class="info-box"><strong>Phone:</strong> (555) 123-4567</div>
+                    <div class="info-box"><strong>Gender:</strong> Female</div>
+                    <div class="info-box"><strong>Age:</strong> 34</div>
+                    <button class="edit-button">Edit Profile</button>
+             </div>
+            </div>
+
+      
+        </div>
+    
+</div>
+</div>
+    </body>
+    </html>
+
+    <script>
+        const editBtn = document.getElementById("editBtn");
+        const saveBtn = document.getElementById("saveBtn");
+    
+        const spans = {
+            name: document.getElementById("nameDisplay"),
+            email: document.getElementById("emailDisplay"),
+            phone: document.getElementById("phoneDisplay"),
+            spec: document.getElementById("specDisplay")
+        };
+    
+        const inputs = {
+            name: document.getElementById("nameInput"),
+            email: document.getElementById("emailInput"),
+            phone: document.getElementById("phoneInput"),
+            spec: document.getElementById("specInput")
+        };
+    
+        editBtn.onclick = function () {
+            // Show input fields, hide spans
+            for (let key in spans) {
+                spans[key].style.display = "none";
+                inputs[key].style.display = "block";
+            }
+            editBtn.style.display = "none";
+            saveBtn.style.display = "inline-block";
+        };
+    
+        saveBtn.onclick = function () {
+            // Update spans with input values
+            for (let key in spans) {
+                spans[key].textContent = inputs[key].value;
+                spans[key].style.display = "block";
+                inputs[key].style.display = "none";
+            }
+            saveBtn.style.display = "none";
+            editBtn.style.display = "inline-block";
+        };
+    </script>
+
+            
+
+

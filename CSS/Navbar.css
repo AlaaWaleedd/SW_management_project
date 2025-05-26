@@ -156,3 +156,14 @@ nav {
     display: none;
   }
 }
+.profile-icon {
+  font-size: 1.8rem;
+  color: aliceblue;
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.profile-icon:hover {
+  color: #2F4156;
+}

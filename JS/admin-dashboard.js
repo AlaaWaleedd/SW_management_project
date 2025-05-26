@@ -21,3 +21,7 @@ recentActivity.forEach(activity => {
   li.textContent = activity;
   activityLog.appendChild(li);
 });
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  window.location.href = "/Pages/Home-Page.html"; // Adjust the path as needed
+});
+

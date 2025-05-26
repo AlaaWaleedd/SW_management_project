@@ -3,60 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/CSS/patientDashboard.css">
+
+    <title>VeroCare</title>
+    <link rel="stylesheet" href="/CSS/Navbar.css">
+    <script src="/JS/Navbar.js"></script>
 </head>
 <body>
-    <header class="Headers">
-        <h1>Patient Dashboard</h1>
-    </header>
-    <main class="dashboard-container">
-        <section class="patient-info">
-            <h2>Personal Information</h2>
-            <div class="info-field">
-                <label for="name">Name:</label>
-                <input type="text" id="name" value="John Doe" readonly>
-                <button class="edit-btn"></button>
+   <header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">⚕️</span>
+                VeroCare
             </div>
-            <div class="info-field">
-                <label for="age">Age:</label>
-                <input type="text" id="age" value="30" readonly>
-                <button class="edit-btn"></button>
+            <ul class="nav-links">
+                <li><a href="/Pages/Home-Page.html">Home</a></li>
+                <li><a href="/Pages/Booking-Appointment-Page.html">Appointments</a></li>
+                <li><a href="/Pages/About-Us.html">About Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+               <button class="btn btn-outline" onclick="window.location.href='/Pages/login.html'">Sign In</button>
             </div>
-            <div class="info-field">
-                <label for="blood-type">Blood Type:</label>
-                <input type="text" id="blood-type" value="O+" readonly>
-                <button class="edit-btn"></button>
-            </div>
-            <div class="info-field">
-                <label for="allergies">Allergies:</label>
-                <input type="text" id="allergies" value="None" readonly>
-                <button class="edit-btn"></button>
-            </div>
-        </section>
-        <section class="medical-records">
-            <h2>Medical Records</h2>
-            <div class="record">
-                <h3>Last Visit</h3>
-                <p><strong>Date:</strong> June 10, 2024</p>
-                <p><strong>Doctor:</strong> Dr. Smith</p>
-                <p><strong>Diagnosis:</strong> Mild Hypertension</p>
-            </div>
-        </section>
-    </main>
-    <script>
-    document.querySelectorAll(".edit-btn").forEach(button => {
-        button.addEventListener("click", function() {
-            let inputField = this.previousElementSibling;
-            inputField.removeAttribute("readonly");
-            inputField.focus();
-            this.style.display = "none";
-            inputField.addEventListener("blur", function() {
-                inputField.setAttribute("readonly", true);
-                button.style.display = "inline-block";
-            });
-        });
+        </nav>
+    </div>
+</header>
+
+  <main class="profile-layout">
+  <!-- Left: Profile Info -->
+  <section class="profile-panel">
+    <div class="patient-header">
+      <div>
+        <h2>Your Name</h2>
+        <p>yourname@gmail.com</p>
+      </div>
+      <button class="close-btn"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="patient-field">
+      <label class="label" for="name">Name</label>
+      <input type="text" id="name" class="value-input" value="Your name" readonly>
+      <button class="edit-btn"><i class="fas fa-pen"></i></button>
+    </div>
+
+    <div class="patient-field">
+      <label class="label" for="email">Email account</label>
+      <input type="email" id="email" class="value-input" value="yourname@gmail.com" readonly>
+      <button class="edit-btn"><i class="fas fa-pen"></i></button>
+    </div>
+
+    <div class="patient-field">
+      <label class="label" for="phone">Mobile number</label>
+      <input type="tel" id="phone" class="value-input" value="12345678901" readonly>
+      <button class="edit-btn"><i class="fas fa-pen"></i></button>
+    </div>
+
+    <div class="patient-field">
+      <label class="label" for="location">Location</label>
+      <input type="text" id="location" class="value-input" value="USA" readonly>
+      <button class="edit-btn"><i class="fas fa-pen"></i></button>
+    </div>
+
+    <button class="save-btn">Save Changes</button>
+  </section>
+
+  <!-- Right: Medical History -->
+  <section class="history-panel">
+    <h3>Medical History</h3>
+    <ul class="medical-history">
+      <li><strong>Jan 2024:</strong> General checkup - Normal</li>
+      <li><strong>Dec 2023:</strong> Blood test - Vitamin D deficiency</li>
+      <li><strong>Oct 2023:</strong> Covid-19 Vaccination - Booster dose</li>
+    </ul>
+  </section>
+</main>
+
+
+   <script>
+  document.querySelectorAll(".edit-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      const input = this.previousElementSibling;
+      input.removeAttribute("readonly");
+      input.focus();
+      input.style.border = "1px solid #ccc";
     });
+  });
+
+  // handle saving
+  document.querySelector(".save-btn").addEventListener("click", () => {
+    document.querySelectorAll(".value-input").forEach(input => {
+      input.setAttribute("readonly", true);
+      input.style.border = "none";
+    });
+    alert("Changes saved!");
+  });
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{11}$/;
+
+  document.querySelector(".save-btn").addEventListener("click", () => {
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+
+    let isValid = true;
+    let errorMessages = [];
+
+    // Email validation
+    if (!emailRegex.test(emailInput.value.trim())) {
+      isValid = false;
+      errorMessages.push("Please enter a valid email address.");
+      emailInput.style.border = "1px solid red";
+    } else {
+      emailInput.style.border = "1px solid #ccc";
+    }
+
+    // Phone validation
+    if (!phoneRegex.test(phoneInput.value.trim())) {
+      isValid = false;
+      errorMessages.push("Phone number must be exactly 10 digits.");
+      phoneInput.style.border = "1px solid red";
+    } else {
+      phoneInput.style.border = "1px solid #ccc";
+    }
+
+    if (isValid) {
+      // Disable all inputs again
+      document.querySelectorAll(".value-input").forEach(input => {
+        input.setAttribute("readonly", true);
+        input.style.border = "none";
+      });
+       alert("Changes saved successfully!");
+      window.location.href = "/Pages/Home-Page.html"; // adjust if needed
+    } else {
+      alert(errorMessages.join("\n"));
+    }
+  });
+
+
+  
 </script>
+
 </body>
 </html>
